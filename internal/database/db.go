@@ -2,6 +2,7 @@ package database
 
 import (
 	"log"
+
 	"github.com/justsurfingit/Agentic-Job-Tracker/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -24,6 +25,6 @@ func Connect() *gorm.DB {
 
 	// Migration: This creates the tables in Postgres automatically
 	log.Println("Running Migrations...")
-	DB.AutoMigrate(&models.Company{}, &models.Job{}, &models.JobEvent{})
-	return DB;
+	DB.AutoMigrate(&models.Company{}, &models.Job{}, &models.JobEvent{}, &models.User{}, &models.ProcessedEmail{})
+	return DB
 }
